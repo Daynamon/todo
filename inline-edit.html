@@ -1,0 +1,9 @@
+<span>
+  <input class="inline-input" type="text" on-enter="save()" on-esc="cancel()" ng-model="model" ng-show="editMode">
+  <button class="btn btn-success small" ng-click="save()" ng-show="editMode">Save</button>
+  <button class="btn btn-danger small" ng-click="cancel()" ng-show="editMode">Cancel</button>
+  <span>
+    <span ng-hide="editMode" ng-click="edit()">{{model}}</span>
+    <a ng-show="showEdit" ng-click="edit()">edit</a>
+  </span>
+</span>

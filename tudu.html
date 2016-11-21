@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html data-ng-app="app">
-  <head> <!--Todos los enlaces estan acá-->
-    <meta charset="UTF-8"/>
-      <title>Tareas</title>
-      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-      <script src="js/angular.min.js"></script>
-      <script src="js/jquery.min.js"></script>
-      <script src="js/xeditable.js"></script>
-      <link href="css/xeditable.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="icon" href="img/icono.ico">
-      <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
-      <link rel="stylesheet" href="css/tudu.css" type="text/css">
-    </head>
 
-    <body data-ng-controller="contro">
+<head>
+  <!--Todos los enlaces estan acá-->
+  <meta charset="UTF-8" />
+  <title>Tareas</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="js/angular.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="icon" href="img/icono.ico">
+  <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+  <link rel="stylesheet" href="css/tudu.css" type="text/css">
+</head>
 
-      <div class="container">
+<body data-ng-controller="contro">
 
-      <!--Meú responsive-->
-        <header class="app-header">
-            <div class="menu">
-              <a href="#" class="bt-menu"><i class="fa fa-bars" aria-hidden="true"></i>Menu</a>
-            </div>
-          <nav class="clearfix">
-            <ul class="clearfix">
-                <li class="titulo"><a href="#">TodoList!</a></li>
-                <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>Inicio</a></li>
-                <li><a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i>Realizado</a></li>
-                <li><a href="#"><i class="fa fa-spinner" aria-hidden="true"></i>Pendientes</a></li>
-                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Calendario</a></li>
-                <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>Configurar</a></li>
-            </ul>
-          </nav>
-        </header>
-        <h1>To-Do List</h1>
-  <!--Agregar tareas-->
+  <div class="container">
+
+    <!--Meú responsive-->
+    <header class="app-header">
+      <div class="menu">
+        <a href="#" class="bt-menu"><i class="fa fa-bars" aria-hidden="true"></i>Menu</a>
+      </div>
+      <nav class="clearfix">
+        <ul class="clearfix">
+          <li class="titulo"><a href="#">TodoList!</a></li>
+          <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>Inicio</a></li>
+          <li><a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i>Realizado</a></li>
+          <li><a href="#"><i class="fa fa-spinner" aria-hidden="true"></i>Pendientes</a></li>
+          <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Calendario</a></li>
+          <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>Configurar</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>To-Do List</h1>
+    <!--Agregar tareas-->
     <section>
       <div id="wrapper-todo">
         <form data-ng-submit="todoAdd()">
-          <input data-ng-model="todoInput" type="text" placeholder="Ingrese nueva tarea" required="true" name="llenar" class="taskinput"/>
+          <input data-ng-model="todoInput" type="text" placeholder="Ingrese nueva tarea" required="true" name="llenar" class="taskinput"
+          />
           <button type="submit" class="btn btn-success">Agregar Tarea</button>
           <button data-ng-click="remove($index)" class="btn btn-danger">Eliminar Todo</button>
         </form>
         <!--Muestra de las tareas ingresadas-->
-      <div class="list-task">
-        <li data-ng-repeat="porhacer in todoList" class="task"><span class="tasktext" e-ng-change="updateLocalStorage()" editable-text="porhacer.muestra">{{porhacer.muestra}}</span>
-          <span class="btn btn-danger small" ng-click="delete($index)"/>X</span><span class="btn btn-success small">+</span></li>
-      </div>
+        <div class="list-task">
+          <li ng-repeat="porhacer in todoList" class="task">
+            <span class="tasktext" inline-edit="porhacer.muestra" on-save="updateLocalStorage($index)">{{porhacer.muestra}}</span>
+            <span class="btn btn-danger small" ng-click="delete($index)" />X</span><span class="btn btn-success small">+</span>
+          </li>
+        </div>
     </section>
-   </div>
-   <script src="js/responsive.js"></script>
-   <script src="js/tudu.js"></script>
+    </div>
+    <script src="js/responsive.js"></script>
+    <script src="js/tudu.js"></script>
 
-  </body>
+</body>
 </div>
 
 </html>
