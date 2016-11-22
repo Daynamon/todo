@@ -48,7 +48,7 @@
         <div class="list-task">
           <li ng-repeat="porhacer in todoList" class="task">
             <span class="tasktext" inline-edit="porhacer.muestra" on-save="updateLocalStorage($index)">{{porhacer.muestra}}</span>
-            <span class="btn btn-danger small" ng-click="delete($index)" />X</span><span class="btn btn-success small">+</span>
+            <span class="btn btn-success small" ng-click="delete($index)" />Done</span>
           </li>
         </div>
     </section>

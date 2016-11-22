@@ -34,10 +34,6 @@ app.controller("contro", function ($scope) {
   }
 });
 
-
-
-
-
 // On esc event
 app.directive('onEsc', function () {
   return function (scope, elm, attr) {
